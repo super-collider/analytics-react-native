@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
-import analytics from '@segment/analytics-react-native'
+import analytics from '@metarouter/analytics-react-native'
 
 type Call = ['identify' | 'track', string, {}]
 

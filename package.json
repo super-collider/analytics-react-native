@@ -13,7 +13,7 @@
     ]
   },
   "scripts": {
-    "core": "yarn workspace @segment/analytics-react-native",
+    "core": "yarn workspace @metarouter/analytics-react-native",
     "integrations": "yarn workspace @local/integrations",
     "test-app": "yarn workspace @local/test-app",
     "build:core": "yarn core build",

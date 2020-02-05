@@ -11,7 +11,7 @@ pushd project/ios
         pod install
         cfg="cocoapods"
     else
-        echo "import {Analytics} from '@segment/analytics-react-native'" > ../integrations.gen.ts
+        echo "import {Analytics} from '@metarouter/analytics-react-native'" > ../integrations.gen.ts
         echo "export default [] as Analytics.Integration[]" >> ../integrations.gen.ts
         rm -rf TestApp.xcodeproj
         cp -r ../../patches/TestApp.xcodeproj .

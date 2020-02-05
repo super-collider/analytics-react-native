@@ -56,7 +56,7 @@ export default integrations
 			ios,
 			android,
 			npm: {
-				package: `@segment/analytics-react-native-${slug(
+				package: `@metarouter/analytics-react-native-${slug(
 					'-'
 				).toLowerCase()}${suffix}`
 			}

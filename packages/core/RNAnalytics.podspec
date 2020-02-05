@@ -10,16 +10,16 @@ Pod::Spec.new do |s|
     integrate with over 100s of tools.
                           DESC
 
-  s.homepage            = 'http://segment.com/'
-  s.social_media_url    = 'https://twitter.com/segment'
+  s.homepage            = 'http://astronomer.io/'
+  s.social_media_url    = 'https://twitter.com/astronomerio'
   s.license             = { :type => 'MIT' }
-  s.author              = { 'Segment' => 'friends@segment.com' }
-  s.source              = { :git => 'https://github.com/segmentio/analytics-react-native.git', :tag => s.version.to_s }
+  s.author              = { "Astronomer" => "info@astronomer.io" }
+  s.source              = { :git => 'https://github.com/super-collider/analytics-react-native.git', :tag => s.version.to_s }
 
   s.platform            = :ios, '9.0'
   s.source_files        = 'ios/**/*.{m,h}'
   s.static_framework    = true
 
-  s.dependency          'Analytics'
+  s.dependency          'AstronomerAnalytics'
   s.dependency          'React'
 end

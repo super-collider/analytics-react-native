@@ -12,10 +12,10 @@ Pod::Spec.new do |s|
                           This is the {{{name}}} integration for the React-Native library.
                           DESC
    
-  s.homepage            = "http://segment.com/"
+  s.homepage            = "http://astronomer.io"
   s.license             =  { :type => 'MIT' }
-  s.author              = { "Segment" => "friends@segment.com" }
-  s.source              = { :git => "https://github.com/segmentio/analytics-react-native.git", :tag => s.version.to_s }
+  s.author              = { "Astronomer" => "info@astronomer.io" }
+  s.source              = { :git => "https://github.com/super-collider/analytics-react-native.git", :tag => s.version.to_s }
   s.social_media_url    = 'https://twitter.com/segment'
 
   s.platform            = :ios, "9.0"
@@ -23,6 +23,6 @@ Pod::Spec.new do |s|
   s.static_framework    = true
 
   s.dependency          '{{{pod_dependency}}}'{{#pod_version}}, '~> {{{pod_version}}}'{{/pod_version}}
-  s.dependency          'Analytics'
+  s.dependency          'MetarouterAnalytics'
   s.dependency          'React'
 end
