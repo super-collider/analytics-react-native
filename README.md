@@ -1,11 +1,11 @@
-# @segment/analytics-react-native
+# @metarouter/analytics-react-native
 
 The hassle-free way to add analytics to your React-Native app.
 
-[![CircleCI](https://circleci.com/gh/segmentio/analytics-react-native.svg?style=svg)](https://circleci.com/gh/segmentio/analytics-react-native) [![codecov](https://codecov.io/gh/segmentio/analytics-react-native/branch/develop/graph/badge.svg)](https://codecov.io/gh/segmentio/analytics-react-native) [![npm](https://img.shields.io/npm/v/@segment/analytics-react-native.svg)](https://www.npmjs.com/package/@segment/analytics-react-native)
+[![CircleCI](https://circleci.com/gh/segmentio/analytics-react-native.svg?style=svg)](https://circleci.com/gh/segmentio/analytics-react-native) [![codecov](https://codecov.io/gh/segmentio/analytics-react-native/branch/develop/graph/badge.svg)](https://codecov.io/gh/segmentio/analytics-react-native) [![npm](https://img.shields.io/npm/v/@metarouter/analytics-react-native.svg)](https://www.npmjs.com/package/@metarouter/analytics-react-native)
 
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/16131737/53616046-c141ed80-3b95-11e9-8966-78d4062a44da.png"/>
+  <img src="https://user-images.githubusercontent.com/1385202/73848627-246de280-4831-11ea-8fcf-06f2d6f451e3.png"/>
   <p><b><i>You can't fix what you can't measure</i></b></p>
 </div>
 
@@ -45,12 +45,13 @@ Analytics helps you measure your users, product, and business. It unlocks insigh
    order by price desc
    ```
 
-### 🚀 Startup Program
+<!-- ### 🚀 Startup Program
 
 <div align="center">
   <a href="https://segment.com/startups"><img src="https://user-images.githubusercontent.com/16131737/53128952-08d3d400-351b-11e9-9730-7da35adda781.png" /></a>
 </div>
 If you are part of a new startup  (&lt;$5M raised, &lt;2 years since founding), we just launched a new startup program for you. You can get a Segment Team plan  (up to <b>$25,000 value</b> in Segment credits) for free up to 2 years — <a href="https://segment.com/startups/">apply here</a>!
+ -->
 
 ## Prerequisite
 
@@ -63,7 +64,7 @@ If you are part of a new startup  (&lt;$5M raised, &lt;2 years since founding), 
 ## Installation
 
 ```bash
-$ yarn add @segment/analytics-react-native
+$ yarn add @metarouter/analytics-react-native
 $ yarn react-native link
 ```
 
@@ -73,13 +74,11 @@ See the [API docs](packages/core/docs/classes/analytics.client.md) for more deta
 
 <!-- prettier-ignore -->
 ```js
-import analytics from '@segment/analytics-react-native'
-import Mixpanel from '@segment/analytics-react-native-mixpanel'
-import GoogleAnalytics from '@segment/analytics-react-native-google-analytics'
+import analytics from '@metarouter/analytics-react-native'
 
 analytics
     .setup('writeKey', {
-        using: [Mixpanel, GoogleAnalytics],
+        using: [],
         recordScreenViews: true,
         trackAppLifecycleEvents: true,
         trackAttributionData: true,
@@ -104,77 +103,6 @@ analytics.track('Pizza Eaten')
 analytics.screen('Home')
 ```
 
-### Sending data to destinations
-
-<!-- Based on https://segment.com/docs/sources/mobile/android/#sending-data-to-destinations -->
-
-There are two ways to send data to your analytics services through this library:
-
-1.  [Through the Segment servers](#cloud-based-connection-modes)
-2.  [Directly from the device using bundled SDK’s](#packaging-device-based-destination-sdks)
-
-**Note**: Refer to the specific destination’s docs to see if your tool must be bundled in the app or sent server-side.
-
-#### Cloud-based Connection Modes
-
-When an destination’s SDK is not packaged, but it is enabled via your dashboard, the request goes through the Segment REST API, and is routed to the service’s server-side API as [described here](https://segment.com/docs/integrations/#connection-modes).
-
-#### Packaging Device-based destination SDKs
-
-By default, our `@segment/analytics-react-native` packages does not contain any device-based destinations.
-
-We recommend using device-based destinations on a need-to-use basis to reduce the size of your application, and avoid running into the dreaded 65k method limit on Android.
-
-If you would like to package device-based destinations, first search for the dependency you need using [the list below](#integrations).
-You'll need to run `react-native link` and add it in the `.using()` configuration method. Example using Google Analytics :
-
-```bash
-$ yarn add @segment/analytics-react-native-google-analytics
-$ yarn react-native link
-```
-
-In your code :
-
-```js
-import analytics from '@segment/analytics-react-native'
-import GoogleAnalytics from '@segment/analytics-react-native-google-analytics'
-
-await analytics.setup('writeKey', {
-  using: [GoogleAnalytics]
-})
-```
-
-#### Integrations
-
-> All integrations have the same version as `@segment/analytics-react-native`
-
-<!-- AUTOGEN:INTEGRATIONS:BEGIN -->
-
-| Name                                                                                                         | iOS                | Android            | npm package                                               |
-| ------------------------------------------------------------------------------------------------------------ | ------------------ | ------------------ | --------------------------------------------------------- |
-| [Adjust](https://www.npmjs.com/package/@segment/analytics-react-native-adjust)                               | :white_check_mark: | :white_check_mark: | `@segment/analytics-react-native-adjust`                  |
-| [Amplitude](https://www.npmjs.com/package/@segment/analytics-react-native-amplitude)                         | :white_check_mark: | :white_check_mark: | `@segment/analytics-react-native-amplitude`               |
-| [Appboy](https://www.npmjs.com/package/@segment/analytics-react-native-appboy)                               | :white_check_mark: | :white_check_mark: | `@segment/analytics-react-native-appboy`                  |
-| [AppsFlyer](https://www.npmjs.com/package/@segment/analytics-react-native-appsflyer)                         | :white_check_mark: | :white_check_mark: | `@segment/analytics-react-native-appsflyer`               |
-| [Branch](https://www.npmjs.com/package/@segment/analytics-react-native-branch)                               | :white_check_mark: | :white_check_mark: | `@segment/analytics-react-native-branch`                  |
-| [Bugsnag](https://www.npmjs.com/package/@segment/analytics-react-native-bugsnag)                             | :white_check_mark: | :white_check_mark: | `@segment/analytics-react-native-bugsnag`                 |
-| [CleverTap](https://www.npmjs.com/package/@segment/analytics-react-native-clevertap)                         | :white_check_mark: | :white_check_mark: | `@segment/analytics-react-native-clevertap`               |
-| [ComScore](https://www.npmjs.com/package/@segment/analytics-react-native-comscore-ios)                       | :white_check_mark: | :x:                | `@segment/analytics-react-native-comscore-ios`            |
-| [Countly](https://www.npmjs.com/package/@segment/analytics-react-native-countly)                             | :white_check_mark: | :white_check_mark: | `@segment/analytics-react-native-countly`                 |
-| [Crittercism](https://www.npmjs.com/package/@segment/analytics-react-native-crittercism)                     | :white_check_mark: | :white_check_mark: | `@segment/analytics-react-native-crittercism`             |
-| [Facebook App Events](https://www.npmjs.com/package/@segment/analytics-react-native-facebook-app-events-ios) | :white_check_mark: | :x:                | `@segment/analytics-react-native-facebook-app-events-ios` |
-| [Firebase](https://www.npmjs.com/package/@segment/analytics-react-native-firebase)                           | :white_check_mark: | :white_check_mark: | `@segment/analytics-react-native-firebase`                |
-| [Flurry](https://www.npmjs.com/package/@segment/analytics-react-native-flurry)                               | :white_check_mark: | :white_check_mark: | `@segment/analytics-react-native-flurry`                  |
-| [Google Analytics](https://www.npmjs.com/package/@segment/analytics-react-native-google-analytics)           | :white_check_mark: | :white_check_mark: | `@segment/analytics-react-native-google-analytics`        |
-| [Intercom](https://www.npmjs.com/package/@segment/analytics-react-native-intercom)                           | :white_check_mark: | :white_check_mark: | `@segment/analytics-react-native-intercom`                |
-| [Localytics](https://www.npmjs.com/package/@segment/analytics-react-native-localytics)                       | :white_check_mark: | :white_check_mark: | `@segment/analytics-react-native-localytics`              |
-| [Mixpanel](https://www.npmjs.com/package/@segment/analytics-react-native-mixpanel)                           | :white_check_mark: | :white_check_mark: | `@segment/analytics-react-native-mixpanel`                |
-| [Quantcast](https://www.npmjs.com/package/@segment/analytics-react-native-quantcast-android)                 | :x:                | :white_check_mark: | `@segment/analytics-react-native-quantcast-android`       |
-| [Taplytics](https://www.npmjs.com/package/@segment/analytics-react-native-taplytics-ios)                     | :white_check_mark: | :x:                | `@segment/analytics-react-native-taplytics-ios`           |
-| [Tapstream](https://www.npmjs.com/package/@segment/analytics-react-native-tapstream-android)                 | :x:                | :white_check_mark: | `@segment/analytics-react-native-tapstream-android`       |
-
-<!-- AUTOGEN:INTEGRATIONS:END -->
-
 ## Troubleshooting
 
 ### iOS support without CocoaPods
@@ -187,7 +115,7 @@ However, if you cannot use Cocoapods, you can manually install our dynamic frame
 
 Here are the steps for installing manually:
 
-1. Add `analytics-ios` as a npm dependency: `yarn add @segment/analytics-ios@github:segmentio/analytics-ios#3.6.10`
+1. Add `analytics-ios` as a npm dependency: `yarn add @metarouter/analytics-ios@github:metarouter/analytics-ios#3.6.10`
 2. In the `General` tab for your project, search for `Embedded Binaries` and add the `Analytics.framework`
    ![Embed Analytics.framework](https://segment.com/docs/sources/mobile/react-native/images/embed-analytics-framework.png)
 
@@ -203,11 +131,7 @@ If you're using Cocoapods, check that your `ios/Podfile` file contains the right
 
 - `Failed to load Analytics native module`, look for the core native module:
   ```ruby
-  pod 'RNAnalytics', :path => '../node_modules/@segment/analytics-react-native'
-  ```
-- `Failed to load [...] integration native module`, look for the integration native module, example with Google Analytics:
-  ```ruby
-  pod 'RNAnalyticsIntegration-Google-Analytics', :path => '../node_modules/@segment/analytics-react-native-google-analytics'
+  pod 'RNAnalytics', :path => '../node_modules/@metarouter/analytics-react-native'
   ```
 
 Also check that your `Podfile` is synchronized with your workspace, run `pod install` in your `ios` folder.
