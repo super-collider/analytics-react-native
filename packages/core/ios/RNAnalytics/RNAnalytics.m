@@ -7,7 +7,7 @@
 
 #import "RNAnalytics.h"
 
-#import <AstronomerAnalytics/SEGAnalytics.h>
+#import <MetarouterAnalytics/SEGAnalytics.h>
 #import <React/RCTBridge.h>
 
 static NSMutableSet* RNAnalyticsIntegrations = nil;

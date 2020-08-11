@@ -20,6 +20,6 @@ Pod::Spec.new do |s|
   s.source_files        = 'ios/**/*.{m,h}'
   s.static_framework    = true
 
-  s.dependency          'AstronomerAnalytics'
+  s.dependency          'MetarouterAnalytics', '~> 3.8.0-beta.3'
   s.dependency          'React'
 end
